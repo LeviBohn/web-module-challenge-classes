@@ -62,6 +62,14 @@ class Person {
   }
 }
 
+const levi = new Person('Levi', 42);
+
+console.log ('task 1:', levi.age);
+levi.eat('beer');
+levi.eat('pizza');
+levi.eat('candy');
+console.log ('task 1:', levi.stomach);
+
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon`, from 2 arguments.
@@ -77,9 +85,40 @@ class Person {
 */
 
 class Car {
-  
+  constructor (model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons) {
+    this.tank = gallons + this.tank;
+  }
+  drive(distance) {
+    const driveableMiles = this.tank * this.milesPerGallon;
+    if (distance <= driveableMiles) {
+      this.odometer = distance + this.odometer;
+      this.tank = this.tank - distance/this.milesPerGallon;
+      } else {
+        this.odometer = this.odometer + driveableMiles;
+        this.tank = 0;
+        return `I ran out of fuel at ${this.odometer} miles!`;
+  }
+}
 }
 
+const car1 = new Car ('SantaFe', 29);
+
+console.log ('task 2: car1 model is', car1.model);
+console.log ('task 2: car1 mpg is', car1.milesPerGallon);
+console.log ('task 2: car1 has this much gas...', car1.tank);
+car1.fill(27);
+console.log ('task 2: car1 now has this much gas...', car1.tank);
+car1.drive(500);
+console.log ('task 2: car1 now has this much gas...', car1.tank);
+console.log ('task 2: car1 now has this many miles...', car1.odometer);
+console.log (car1.drive(293));
+console.log ('task 2: car1 now has this many miles...', car1.odometer);
 /*
   TASK 3
     - Write a Lambdasian class.
