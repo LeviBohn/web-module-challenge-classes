@@ -170,8 +170,19 @@ console.log ('task 3:', lambdasian1.speak());
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 
-class Instructor {
-
+class Instructor extends Lambdasian {
+  constructor ({name, age, location, specialty, favLanguage, catchPhrase}) {
+    super({name, age, location});
+    this.specialty = specialty;
+    this.favLanguage = favLanguage;
+    this.catchPhrase = catchPhrase;
+  }
+  demo(subject) {
+    return `Today we are learning about ${subject}`
+  }
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`
+  }
 }
 
 /*
