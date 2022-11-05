@@ -133,8 +133,27 @@ console.log ('task 2: car1 now has this many miles...', car1.odometer);
 */
 
 class Lambdasian {
-  
+  constructor ({name, age, location}) {
+    this.name = name;
+    this.age = age;
+    this.location = location;
+    // return {name, age, location};
+  }
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 }
+
+const lambdasian1 = new Lambdasian ({
+  name: 'Joey',
+  age: 16,
+  location: 'Lubbock'
+})
+
+console.log ('task 3:', lambdasian1);
+console.log ('task 3:', lambdasian1.name);
+console.log ('task 3:', lambdasian1.age);
+console.log ('task 3:', lambdasian1.speak());
 
 /*
   TASK 4
